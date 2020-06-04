@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('/');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/tes', 'HomeController@tes')->name('tes');
 
 Auth::routes();
 
@@ -86,10 +87,10 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Frontend', 'as' => 'fronte
 
     Route::group(['namespace' => 'Intern'], function () {
 
-        /** K01 - MHS */
+    /** K01 - MHS */
     Route::resource('myintern-proposals', 'MyInternProposalController');
-//    Route::resource('myintern-proposals.members', 'MyInternProposalMemberController')->only(['create', 'store', 'destroy']);
-//    Route::resource('myintern-acceptances', 'MyInternAcceptanceController')->only(['edit', 'update']);
+    Route::resource('myintern-proposals.members', 'MyInternProposalMemberController')->only(['create', 'store', 'destroy']);
+    Route::resource('myintern-acceptances', 'MyInternAcceptanceController')->only(['edit', 'update']);
 
         /** K02 - MHS */
 //    Route::resource('myinterns', 'MyInternController')->only(['index', 'show']);
