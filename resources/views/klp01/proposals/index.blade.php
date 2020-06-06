@@ -55,7 +55,7 @@
                         </td>
                         <td>
                             {!! cui()->btn_view(route('frontend.myintern-proposals.show', [$internship->proposal->id])) !!}
-                            {!! cui()->btn_edit(route('frontend.myintern-proposals.edit', [$internship->proposal->id])) !!}
+                            {!! cui()->btn_edit(route('frontend.myintern-acceptances.edit', [$internship->proposal->id])) !!}
                         </td>
                     </tr>
                 @empty
