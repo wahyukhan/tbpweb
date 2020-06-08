@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Internship extends Model
 {
     protected $fillable = ['internship_proposal_id','student_id'];
+    
+    const validation_rules = [
+        
+        'student_id' => 'required',
+    ];
 
     public function proposal()
     {
