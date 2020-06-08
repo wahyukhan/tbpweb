@@ -29,11 +29,6 @@ class InternshipProposal extends Model
         'file' => 'file'
     ];
     
-    const validation_rules = [
-        
-        'student_id' => 'required',
-    ];
-
     protected $guarded=[];
 
     public function agency()
