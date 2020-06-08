@@ -45,8 +45,7 @@ class MyInternProposalController extends Controller
              'background' => request('background'),
              'plan' => request('plan'),
              'start_at' => request('start_at'),
-             'end_at' => request('end_at'),
-             'file' => request('file')]);
+             'end_at' => request('end_at')]);
         if($internshipproposal){
              notify('success', 'Berhasil menambahkan Proposal');
              return redirect()->route('frontend.myintern-proposals.members.create', $internshipproposal -> id);
