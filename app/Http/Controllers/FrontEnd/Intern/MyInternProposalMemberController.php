@@ -39,7 +39,8 @@ class MyInternProposalMemberController extends Controller
      */
     public function store(Request $request, $myintern_proposal)
     {
-
+        $request->validate(Internship::validation_rules);
+        
         $internship = Internship::create([
              'internship_proposal_id' => $myintern_proposal,
              'student_id' => $request->student_id]
