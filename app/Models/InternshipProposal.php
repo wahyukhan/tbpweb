@@ -28,6 +28,11 @@ class InternshipProposal extends Model
         'end_at' => 'required|date',
         'file' => 'file'
     ];
+    
+    const validation_rules = [
+        
+        'student_id' => 'required',
+    ];
 
     protected $guarded=[];
 
