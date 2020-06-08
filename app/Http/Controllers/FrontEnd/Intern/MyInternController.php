@@ -35,7 +35,7 @@ class MyInternController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect()->route('frontend.myintern-proposals.members.create', $internshipproposal -> id);
     }
 
     /**

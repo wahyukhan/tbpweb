@@ -4,13 +4,15 @@ namespace App\Http\Controllers\Frontend\Intern;
 
 use App\Http\Controllers\Controller;
 use App\Models\Internship;
+use App\Models\InternshipAgency;
+use App\Models\InternshipProposal;
 use Illuminate\Http\Request;
 
 class MyInternProposalController extends Controller
 {
 
     public function index()
-    {
+    {   
         $user_id = auth()->user()->id;
         $internships = Internship::where('student_id', $user_id)->get();
 
@@ -24,7 +26,8 @@ class MyInternProposalController extends Controller
      */
     public function create()
     {
-        //
+        $agencies=InternshipAgency::all()->pluck('name','id');
+        return view('klp01.proposals.create', compact('agencies'));
     }
 
     /**
@@ -35,15 +38,25 @@ class MyInternProposalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(InternshipProposal::validation_rules);
+
+        $internshipproposal = InternshipProposal::create([
+             'agency_id' => request('agency_id'),
+             'background' => request('background'),
+             'plan' => request('plan'),
+             'start_at' => request('start_at'),
+             'end_at' => request('end_at'),
+             'file' => request('file')]);
+        if($internshipproposal){
+             notify('success', 'Berhasil menambahkan Proposal');
+             return redirect()->route('frontend.myintern-proposals.members.create', $internshipproposal -> id);
+        }else {
+             notify('failed', 'gagal menambahkan Proposal');
+        }
+ 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show($id)
     {
         //
