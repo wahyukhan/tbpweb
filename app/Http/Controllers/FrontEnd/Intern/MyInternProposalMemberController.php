@@ -25,11 +25,9 @@ class MyInternProposalMemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($myintern_proposal)
+    public function create()
     {
-        $member=Student::all()->pluck('name','id');
-        $students = Internship::where('internship_proposal_id',$myintern_proposal)->get();
-        return view('klp01.member.create', compact('member','myintern_proposal','students'));
+     //
     }
 
     /**
