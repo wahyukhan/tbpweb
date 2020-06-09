@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Frontend\Intern;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Student;
+use App\Models\Internship;
 
 class MyInternProposalMemberController extends Controller
 {
@@ -17,25 +19,29 @@ class MyInternProposalMemberController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+   
+    public function create($myintern_proposal)
     {
-        //
+        $member=Student::all()->pluck('name','id');
+        $students = Internship::where('internship_proposal_id',$myintern_proposal)->get();
+        return view('klp01.members.create', compact('member','myintern_proposal','students'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    
+    public function store(Request $request, $myintern_proposal)
     {
-        //
+
+        $internship = Internship::create([
+             'internship_proposal_id' => $myintern_proposal,
+             'student_id' => $request->student_id]
+        );
+
+        if($internship){
+             notify('success', 'Berhasil menambahkan Member');
+             return redirect()->route('frontend.myintern-proposals.members.create', $myintern_proposal);
+        }else {
+             notify('failed', 'gagal menambahkan member');
+        }
     }
 
     /**
