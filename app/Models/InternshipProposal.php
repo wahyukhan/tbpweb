@@ -20,16 +20,7 @@ class InternshipProposal extends Model
         self::STATUS_REJECTED => 'Ditolak'
     ];
 
-    const validation_rules = [
-        'agency_id'=> 'required',
-        'background' => 'required',
-        'plan' => 'required',
-        'start_at' => 'required|date',
-        'end_at' => 'required|date',
-        'file' => 'file'
-    ];
-    
-    protected $guarded=[];
+
 
     public function agency()
     {
