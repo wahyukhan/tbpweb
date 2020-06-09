@@ -97,13 +97,8 @@ class MyInternProposalMemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($myintern_proposal, $id)
+    public function destroy($id)
     {
-        
-        $internship =Internship::where('internship_proposal_id',$myintern_proposal)->where('student_id', $id)->delete();
-        if($internship){
-        
-        return back()->with('delete', 'Data Berhasil Dihapus!');
-        }
+        //
     }
 }
