@@ -20,8 +20,7 @@ class InternshipProposal extends Model
         self::STATUS_REJECTED => 'Ditolak'
     ];
 
-    protected $table = 'internship_proposals';
-    protected $fillable = ['agency_id', 'background', 'plan', 'start_at', 'end_at', 'status', 'file', 'notes', 'type'];
+
 
     public function agency()
     {
