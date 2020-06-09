@@ -7,7 +7,7 @@
     @enderror
 </div>
 
-<div class="row">
+<div class="form-group row">
     
     <div class="col-md-6">
         <div class="form-group">
@@ -38,7 +38,6 @@
     @enderror
 </div>
 
-<!-- Text Field Input for Keterangan Matkul -->
 <div class="form-group">
     <label class="form-label" for="plan">Tujuan</label>
     {{ html()->textarea('plan')->class(["form-control", "is-invalid" => $errors->has('plan')])->id('plan')->placeholder('Tujuan') }}
@@ -47,7 +46,15 @@
     @enderror
 </div>
 
+<div class="form-group">
+    <label class="form-label" for="notes">Catatan</label>
+    {{ html()->textarea('notes')->class(["form-control", "is-invalid" => $errors->has('notes')])->id('notes')->placeholder('Catatan') }}
+    @error('notes')
+    <div class="invalid-feedback">{{ $errors->first('notes') }}</div>
+    @enderror
+</div>
 
 
-<!-- Text Field Input for Nama Matkul -->
+
+
 
