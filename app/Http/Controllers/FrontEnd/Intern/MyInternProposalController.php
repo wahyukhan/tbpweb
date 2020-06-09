@@ -12,7 +12,7 @@ class MyInternProposalController extends Controller
 {
 
     public function index()
-    {
+    {   
         $user_id = auth()->user()->id;
         $internships = Internship::where('student_id', $user_id)->get();
 
@@ -45,21 +45,17 @@ class MyInternProposalController extends Controller
              'background' => request('background'),
              'plan' => request('plan'),
              'start_at' => request('start_at'),
-             'end_at' => request('end_at')]);
+
         if($internshipproposal){
              notify('success', 'Berhasil menambahkan Proposal');
              return redirect()->route('frontend.myintern-proposals.members.create', $internshipproposal -> id);
         }else {
              notify('failed', 'gagal menambahkan Proposal');
         }
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show($id)
     {
         return $id;
