@@ -54,8 +54,7 @@
                             <h4>{!! $internship->proposal->status_text !!}</h4>
                         </td>
                         <td>
-                            {!! cui()->btn_view(route('frontend.myintern-proposals.show', [$internship->proposal->id])) !!}
-                            {!! cui()->btn_edit(route('frontend.myintern-acceptances.edit', [$internship->proposal->id])) !!}
+
                         </td>
                     </tr>
                 @empty
@@ -74,3 +73,4 @@
     </div>
 
 @endsection
+                         

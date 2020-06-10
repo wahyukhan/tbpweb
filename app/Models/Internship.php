@@ -22,4 +22,14 @@ class Internship extends Model
     {
         return $this->belongsTo(Student::class, 'student_id', 'id');
     }
+
+    const validation_rules = [
+        'internship_proposal_id'=> 'required',
+        'student_id' => 'required',
+  
+    ];
+
+    protected $table = 'internships';
+
+    protected $guarded = [];
 }
