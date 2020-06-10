@@ -27,14 +27,6 @@ class MyInternProposalController extends Controller
     {
 
 
-    }
-
-    
-    public function show($id)
-    {
-        return $id;
-    }
-
    
     public function edit($id)
     {

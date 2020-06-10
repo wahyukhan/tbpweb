@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Internship;
 
+
 class MyInternProposalMemberController extends Controller
 {
     /**
@@ -20,20 +21,15 @@ class MyInternProposalMemberController extends Controller
     }
 
 
-    public function create($myintern_proposal)
-    {
-        $member=Student::all()->pluck('name','id');
-        $students = Internship::where('internship_proposal_id',$myintern_proposal)->get();
-
-        $internship = Internship::create([
-             'internship_proposal_id' => $myintern_proposal,
-             'student_id' => $request->student_id]
-        );
 
         if($internship){
              notify('success', 'Berhasil menambahkan Member');
              return redirect()->route('frontend.myintern-proposals.members.create', $myintern_proposal);
         }else {
+
+             notify('failed', 'gagal menambahkan Member');
+=======
+
 
         }
     }

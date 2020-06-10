@@ -8,18 +8,40 @@
 </div>
 
 
+<div class="form-group row">
+    
+    <div class="col-md-6">
+        <div class="form-group">
+        <label class="form-label"for="start_at">Tanggal Mulai</label>
+        {{ html()->date('start_at')->class(["form-control", "is-invalid" => $errors->has('start_at')])->id('start_at')->placeholder('') }}
+        @error('start_at')
+        <div class="invalid-feedback">{{ $errors->first('start_at') }}</div>
+        @enderror
+        </div>
+    </div>
+=======
+
     {{ html()->textarea('background')->class(["form-control", "is-invalid" => $errors->has('background')])->id('background')->placeholder('Deskripsi Singkat tentang KP') }}
     @error('background')
     <div class="invalid-feedback">{{ $errors->first('background') }}</div>
     @enderror
 </div>
 
-<!-- Text Field Input for Keterangan Matkul -->
 <div class="form-group">
 
     @error('plan')
     <div class="invalid-feedback">{{ $errors->first('plan') }}</div>
     @enderror
 </div>
+
+<div class="form-group">
+    <label class="form-label" for="notes">Catatan</label>
+    {{ html()->textarea('notes')->class(["form-control", "is-invalid" => $errors->has('notes')])->id('notes')->placeholder('Catatan') }}
+    @error('notes')
+    <div class="invalid-feedback">{{ $errors->first('notes') }}</div>
+    @enderror
+</div>
+
+
 
 
