@@ -7,9 +7,7 @@
     @enderror
 </div>
 
-<!-- Text Field Input for Keterangan Matkul -->
-<div class="form-group">
-    <label class="form-label" for="background">Background</label>
+
     {{ html()->textarea('background')->class(["form-control", "is-invalid" => $errors->has('background')])->id('background')->placeholder('Deskripsi Singkat tentang KP') }}
     @error('background')
     <div class="invalid-feedback">{{ $errors->first('background') }}</div>
@@ -18,43 +16,10 @@
 
 <!-- Text Field Input for Keterangan Matkul -->
 <div class="form-group">
-    <label class="form-label" for="plan">Plan</label>
-    {{ html()->textarea('plan')->class(["form-control", "is-invalid" => $errors->has('plan')])->id('plan')->placeholder('plan') }}
+
     @error('plan')
     <div class="invalid-feedback">{{ $errors->first('plan') }}</div>
     @enderror
 </div>
 
 
-<!-- Text Field Input for Nama Matkul -->
-<div class="form-group">
-    <label class="form-label" for="start_at">Periode</label>
-    {{ html()->date('start_at')->class(["form-control", "is-invalid" => $errors->has('start_at')])->id('start_at')->placeholder('') }}
-    @error('start_at')
-    <div class="invalid-feedback">{{ $errors->first('start_at') }}</div>
-    @enderror
-</div>
-
-<!-- Text Field Input for Nama Matkul -->
-<div class="form-group">
-    <label class="form-label" for="end_at"></label>
-    {{ html()->date('end_at')->class(["form-control", "is-invalid" => $errors->has('end_at')])->id('end_at')->placeholder('') }}
-    @error('end_at')
-    <div class="invalid-feedback">{{ $errors->first('end_at') }}</div>
-    @enderror
-</div>
-
-<!-- <div class="form-group">
-    <label class="form-label" for="plan">Status</label>
-    {{ html()->textarea('status')->class(["form-control", "is-invalid" => $errors->has('status')])->id('status')->placeholder('status') }}
-    @error('status')
-    <div class="invalid-feedback">{{ $errors->first('status') }}</div>
-    @enderror
-</div> -->
-
-<div class="form-group">
-    <label class="form-label" for="file">File</label>
-    <div>
-    {{ html()->file('file')->class(["", "is-invalid" => $errors->has('file')])->id('file')}}
-    </div>
-</div>

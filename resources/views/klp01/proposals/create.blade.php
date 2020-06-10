@@ -14,7 +14,7 @@
 
 @section('content')
 
-    {{ html()->form('POST', route('frontend.myintern-proposals.store'))->acceptsFiles()->open() }}
+
 
     <div class="card">
         <div class="card-header">

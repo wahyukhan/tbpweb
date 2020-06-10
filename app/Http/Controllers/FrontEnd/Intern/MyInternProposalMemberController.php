@@ -19,17 +19,11 @@ class MyInternProposalMemberController extends Controller
         //
     }
 
-   
+
     public function create($myintern_proposal)
     {
         $member=Student::all()->pluck('name','id');
         $students = Internship::where('internship_proposal_id',$myintern_proposal)->get();
-        return view('klp01.members.create', compact('member','myintern_proposal','students'));
-    }
-
-    
-    public function store(Request $request, $myintern_proposal)
-    {
 
         $internship = Internship::create([
              'internship_proposal_id' => $myintern_proposal,
@@ -40,7 +34,7 @@ class MyInternProposalMemberController extends Controller
              notify('success', 'Berhasil menambahkan Member');
              return redirect()->route('frontend.myintern-proposals.members.create', $myintern_proposal);
         }else {
-             notify('failed', 'gagal menambahkan member');
+
         }
     }
 
@@ -84,8 +78,15 @@ class MyInternProposalMemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($myintern_proposal, $id)
     {
-        //
+        $internship =Internship::where('internship_proposal_id',$myintern_proposal)->where('student_id', $id);
+        $internship->delete();
+
+        if($internship){
+            return back()->with('delete', 'Data Berhasil Dihapus!');
+        }
+        
+        
     }
 }

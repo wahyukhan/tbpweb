@@ -2,18 +2,13 @@
 
 namespace App\Http\Controllers\Frontend\Intern;
 
-use App\Http\Controllers\Controller;
-use App\Models\Internship;
-use App\Models\InternshipProposal;
-use App\Models\InternshipAgency;
-use Illuminate\Http\Request;
 
 
 class MyInternProposalController extends Controller
 {
 
     public function index()
-    {
+    {   
         $user_id = auth()->user()->id;
         $internships = Internship::where('student_id', $user_id)->get();
 
@@ -30,28 +25,14 @@ class MyInternProposalController extends Controller
     
     public function store(Request $request)
     {
-        //$request->validate(InternshipProposal::validation_rules);
 
-        $internshipproposal = InternshipProposal::create([
-            'agency_id' => request('agency_id'),
-            'background' => request('background'),
-            'plan' => request('plan'),
-            'start_at' => request('start_at'),
-            'end_at' => request('end_at'),
-            'file' => request('file')]);
-       if($internshipproposal){
-            notify('success', 'Berhasil menambahkan Proposal');
-            return redirect()->route('frontend.myintern-proposals.members.create', $internshipproposal -> id);
-       }else {
-            notify('failed', 'gagal menambahkan Proposal');
-       }
 
     }
 
     
     public function show($id)
     {
-        //
+        return $id;
     }
 
    

@@ -21,7 +21,7 @@
             <form class="form-horizontal" action="{{route('frontend.myintern-acceptances.update', ['myintern_acceptance' => $data->id])}}" method="post" enctype="multipart/form-data">
                 @method('put')
                 @csrf
-                <!-- <div class="form-group row">
+
                     <label class="col-md-3 col-form-label">Agency</label>
                     <div class="col-md-9">
                         <select class="form-control" id="agency_id" name="agency_id">
@@ -67,14 +67,14 @@
                                 <option @if ($data->status == 4) selected @endif value="4">Ditolak</option>
                             </select>
                         </div>
-                    </div> --> 
+
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="file-input">File input</label>
                         <div class="col-md-9">
                             <a href="{{asset('files/intern-proposal/'.$data->file)}}" target="_blank" style="margin-bottom: 10px;display: block">{{$data->file}}&nbsp;&nbsp;&nbsp;<i class="cil-file" ></i></a>
                             <input id="file-input" type="file" name="file">
                         </div>
-                    <!-- </div>
+
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="notes">Notes</label>
                         <div class="col-md-9">
@@ -86,7 +86,7 @@
                         <div class="col-md-9">
                             <input class="form-control" id="type" type="number" name="type" value="{{$data->type}}" autocomplete="email">
                         </div>
-                    </div> -->
+
                     <div class="form-group row">
                         <label class="col-md-3 col-form-label" for="type"></label>
                         <div class="col-md-9">
@@ -103,4 +103,4 @@
 
         </div>
 
-        @endsection
+
