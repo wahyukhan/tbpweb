@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Internship extends Model
 {
+    protected $fillable = ['internship_proposal_id','student_id'];
+    
+    const validation_rules = [
+        
+        'student_id' => 'required',
+    ];
+
     public function proposal()
     {
         return $this->belongsTo(InternshipProposal::class, 'internship_proposal_id', 'id');
@@ -15,4 +22,14 @@ class Internship extends Model
     {
         return $this->belongsTo(Student::class, 'student_id', 'id');
     }
+
+    const validation_rules = [
+        'internship_proposal_id'=> 'required',
+        'student_id' => 'required',
+  
+    ];
+
+    protected $table = 'internships';
+
+    protected $guarded = [];
 }

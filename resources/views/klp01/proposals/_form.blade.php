@@ -7,6 +7,7 @@
     @enderror
 </div>
 
+
 <div class="form-group row">
     
     <div class="col-md-6">
@@ -18,20 +19,8 @@
         @enderror
         </div>
     </div>
+=======
 
-    <div class="col-md-6">
-        <div class="form-group">
-        <label class="form-label"for="end_at">Tanggal Selesai</label>
-        {{ html()->date('end_at')->class(["form-control", "is-invalid" => $errors->has('end_at')])->id('end_at')->placeholder('') }}
-        @error('end_at')
-        <div class="invalid-feedback">{{ $errors->first('end_at') }}</div>
-        @enderror
-        </div>
-    </div>
-</div>
-
-<div class="form-group">
-    <label class="form-label" for="background">Latar Belakang</label>
     {{ html()->textarea('background')->class(["form-control", "is-invalid" => $errors->has('background')])->id('background')->placeholder('Deskripsi Singkat tentang KP') }}
     @error('background')
     <div class="invalid-feedback">{{ $errors->first('background') }}</div>
@@ -39,8 +28,7 @@
 </div>
 
 <div class="form-group">
-    <label class="form-label" for="plan">Tujuan</label>
-    {{ html()->textarea('plan')->class(["form-control", "is-invalid" => $errors->has('plan')])->id('plan')->placeholder('Tujuan') }}
+
     @error('plan')
     <div class="invalid-feedback">{{ $errors->first('plan') }}</div>
     @enderror
@@ -53,7 +41,6 @@
     <div class="invalid-feedback">{{ $errors->first('notes') }}</div>
     @enderror
 </div>
-
 
 
 
