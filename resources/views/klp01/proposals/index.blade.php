@@ -54,7 +54,11 @@
                             <h4>{!! $internship->proposal->status_text !!}</h4>
                         </td>
                         <td>
-
+                       
+                        {!! cui()->btn_view(route('frontend.myintern-proposals.show', [$internship->proposal->id])) !!}
+                            {!! cui()->btn(route('frontend.myintern-proposals.edit', [$internship->proposal->id]), 'cil-brush') !!}
+                            {!! cui()->btn_edit(route('frontend.myintern-acceptances.edit', [$internship->proposal->id])) !!}
+                            {!! cui()->btn_delete(route('frontend.myintern-proposals.destroy', [$internship->proposal->id]), "Anda yakin akan menghapus data proposal KP ini?") !!}
                         </td>
                     </tr>
                 @empty
@@ -73,4 +77,3 @@
     </div>
 
 @endsection
-                         
