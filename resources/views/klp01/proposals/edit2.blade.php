@@ -34,13 +34,13 @@
                     </div>
 
                     <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="background">Background</label>
+                        <label class="col-md-3 col-form-label" for="background">Latar Belakang</label>
                         <div class="col-md-9">
                             <textarea class="form-control" id="background" name="background" rows="3">{{$data->background}}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="plan">Plan</label>
+                        <label class="col-md-3 col-form-label" for="plan">Tujuan</label>
                         <div class="col-md-9">
                             <input class="form-control" id="plan" type="text" name="plan" value="{{$data->plan}}" placeholder="Text">
                         </div>
@@ -63,14 +63,13 @@
                     </div>
                    
                     <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="notes">Notes</label>
+                        <label class="col-md-3 col-form-label" for="notes">Catatan</label>
                         <div class="col-md-9">
-                            <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="Content..">{{$data->notes}}</textarea>
+                            <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="Catatan">{{$data->notes}}</textarea>
                         </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="type"></label>
                         <div class="col-md-9">
                             <br>
                            <button type="submit" class="btn btn-success">Submit</button>
